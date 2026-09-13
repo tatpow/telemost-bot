@@ -1,0 +1,11 @@
+services:
+  telemost-bot:
+    build: .
+    env_file: .env
+    volumes:
+      - ./browser_profile:/app/browser_profile
+      - ./recordings:/app/recordings
+      - ./debug_screenshots:/app/debug_screenshots
+    restart: unless-stopped
+    # shm_size важен: Chromium в контейнере часто падает на маленьком /dev/shm
+    shm_size: "2gb"

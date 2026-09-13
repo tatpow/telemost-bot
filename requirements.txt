@@ -1,0 +1,13 @@
+# Telegram Bot API (aiogram v3). Диапазон, а не жёсткий пин: на Windows жёсткие
+# пины иногда заставляют pip собирать C/Rust-зависимости (aiohttp, pydantic-core,
+# multidict) из исходников -> ошибка про C++ Build Tools. Диапазон позволяет pip
+# взять готовые wheel'ы под твою версию Python. <4 фиксирует major (защита от v4).
+aiogram>=3.13,<4
+
+# Playwright — управление Chromium. Пин совпадает с Docker-образом
+# (mcr.microsoft.com/playwright/python:v1.47.0). Это чистый Python-пакет,
+# он НЕ вызывает ошибку сборки C++.
+playwright==1.47.0
+
+# Чтение .env. Пакет называется python-dotenv, а импортируется как `dotenv`.
+python-dotenv>=1.0,<2
